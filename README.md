@@ -47,7 +47,7 @@ El **núcleo está escrito en C++17** (`sosim`) y se ejecuta como un proceso ind
 
 ---
 
-## ✨ Características
+## 🧩 Características
 
 **Planificación de CPU**
 - Algoritmos **FCFS**, **SJF**, **Round Robin** y **Prioridad**.
