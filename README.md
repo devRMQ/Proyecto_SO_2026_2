@@ -20,6 +20,8 @@
 - [Características](#-características)
 - [Estructura del repositorio](#-estructura-del-repositorio)
 - [Tecnologías](#️-tecnologías)
+- [Instalación](#-instalación)
+- [Uso](#-uso)
 - [Limitaciones conocidas](#️-limitaciones-conocidas)
 - [Hoja de ruta](#️-hoja-de-ruta)
 
@@ -47,7 +49,7 @@ El **núcleo está escrito en C++17** (`sosim`) y se ejecuta como un proceso ind
 
 ---
 
-## 🧩 Características
+## ✨ Características
 
 **Planificación de CPU**
 - Algoritmos **FCFS**, **SJF**, **Round Robin** y **Prioridad**.
@@ -123,6 +125,62 @@ Proyecto_SO_2026_2/
 | Pruebas | Python (`test_kernel.py`) sobre el binario compilado |
 
 ---
+
+## 🚀 Instalación
+
+### Requisitos
+
+- Compilador **C++17** (Clang o GCC) y `make` (o **CMake ≥ 3.15**)
+- **Python 3.10+**
+
+### Pasos
+
+```bash
+# 1. Clonar el repositorio
+git clone https://github.com/devRMQ/Proyecto_SO_2026_2.git
+cd Proyecto_SO_2026_2
+
+# 2. Compilar el núcleo
+make -C backend
+
+# 3. Instalar dependencias de la GUI (PySide6 y matplotlib)
+python3 -m pip install -r frontend/requirements.txt
+
+# 4. Abrir la GUI
+python3 frontend/main.py
+```
+
+O todo en un solo paso:
+
+```bash
+./run.sh
+```
+
+> **Nota:** si aparece *Permission denied*, ejecuta `chmod +x run.sh`. Si pip muestra el error `externally-managed-environment`, usa un entorno virtual: `python3 -m venv .venv && source .venv/bin/activate`.
+
+> **Nota:** el `Makefile` no detecta cambios en los `.hpp`. Si editas un header, ejecuta `make -C backend clean && make -C backend`.
+
+---
+
+## 💡 Uso
+
+### Desde la interfaz gráfica
+
+1. **Configura el sistema:** planificador y quantum, tipo de memoria (paginada o contigua) y tamaño del buffer productor-consumidor.
+2. **Edita los procesos** en la tabla o usa **Cargar escenario…** con los archivos de `docs/demos/`.
+3. Pulsa **▶ Simular** y usa los controles de pausa, paso a paso y velocidad.
+4. Lee el panel: CPU, colas, PCB, memoria, semáforos, registro del kernel y Gantt.
+
+La guía completa está en [`MANUAL.md`](docs/MANUAL.md).
+
+### Solo el motor, por terminal
+
+```bash
+./backend/build/sosim -i docs/ejemplos/demo_os.json
+
+# Elegir módulo: schedule | sync | memory | os | all
+./backend/build/sosim -i docs/ejemplos/demo_all.json -m schedule
+```
 
 ## ⚠️ Limitaciones conocidas
 
