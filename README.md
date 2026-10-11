@@ -1,6 +1,6 @@
 <div align="center">
 
-#Simulador educativo de Sistema Operativo
+# Simulador educativo de Sistema Operativo
 
 ![C++17](https://img.shields.io/badge/C%2B%2B-17-00599C?logo=cplusplus&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)
