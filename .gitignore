@@ -1,0 +1,12 @@
+# Compilados
+so-simulator/backend/build/
+# Datos generados por la GUI
+so-simulator/shared_data/
+# Python
+__pycache__/
+*.pyc
+.venv/
+# macOS / editores
+.DS_Store
+.idea/
+.vscode/

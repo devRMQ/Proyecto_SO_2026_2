@@ -1,0 +1,78 @@
+{
+  "module": "os",
+  "os": {
+    "scheduler": {
+      "algorithm": "PRIORITY",
+      "quantum": 3,
+      "preemptive": true
+    },
+    "memory": {
+      "mode": "contiguous",
+      "total_memory": 48,
+      "strategy": "FIRST_FIT"
+    },
+    "sync": {
+      "buffer_size": 2
+    },
+    "compare": true,
+    "processes": [
+      {
+        "pid": 1,
+        "name": "Init",
+        "arrival": 0,
+        "burst": 8,
+        "priority": 3,
+        "threads": 1,
+        "parent_pid": -1,
+        "mem_size": 16,
+        "pages": 4
+      },
+      {
+        "pid": 2,
+        "name": "Shell",
+        "arrival": 1,
+        "burst": 6,
+        "priority": 2,
+        "threads": 2,
+        "parent_pid": 1,
+        "mem_size": 12,
+        "pages": 3
+      },
+      {
+        "pid": 3,
+        "name": "Editor",
+        "arrival": 2,
+        "burst": 10,
+        "priority": 1,
+        "threads": 3,
+        "parent_pid": 2,
+        "mem_size": 24,
+        "pages": 5
+      },
+      {
+        "pid": 4,
+        "name": "Productor",
+        "arrival": 0,
+        "burst": 6,
+        "priority": 2,
+        "threads": 1,
+        "parent_pid": 1,
+        "mem_size": 8,
+        "pages": 2,
+        "role": "producer"
+      },
+      {
+        "pid": 5,
+        "name": "Consumidor",
+        "arrival": 1,
+        "burst": 6,
+        "priority": 2,
+        "threads": 1,
+        "parent_pid": 1,
+        "mem_size": 8,
+        "pages": 2,
+        "role": "consumer"
+      }
+    ]
+  }
+}
