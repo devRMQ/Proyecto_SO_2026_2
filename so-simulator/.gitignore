@@ -1,0 +1,17 @@
+backend/build/
+backend/cmake-build-*/
+shared_data/*.json
+__pycache__/
+*.pyc
+.Python
+.venv/
+venv/
+.env
+.DS_Store
+*.o
+*.a
+.idea/
+.vscode/
+CMakeFiles/
+CMakeCache.txt
+*.user

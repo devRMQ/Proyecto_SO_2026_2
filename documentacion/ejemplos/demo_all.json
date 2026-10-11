@@ -1,0 +1,44 @@
+{
+  "module": "all",
+  "schedule": {
+    "algorithm": "RR",
+    "quantum": 4,
+    "preemptive": false,
+    "compare": true,
+    "processes": [
+      {"pid": 1, "name": "Init", "arrival": 0, "burst": 8, "priority": 3, "threads": 1, "parent_pid": -1},
+      {"pid": 2, "name": "Shell", "arrival": 1, "burst": 4, "priority": 2, "threads": 2, "parent_pid": 1},
+      {"pid": 3, "name": "Editor", "arrival": 2, "burst": 9, "priority": 1, "threads": 3, "parent_pid": 2},
+      {"pid": 4, "name": "Compilador", "arrival": 3, "burst": 5, "priority": 4, "threads": 2, "parent_pid": 2}
+    ]
+  },
+  "sync": {
+    "producers": 2,
+    "consumers": 2,
+    "buffer_size": 4,
+    "items_per_producer": 5,
+    "items_per_consumer": 5,
+    "realtime": false
+  },
+  "memory": {
+    "contiguous": {
+      "total_memory": 64,
+      "strategy": "FIRST_FIT",
+      "requests": [
+        {"op": "ALLOC", "pid": 1, "size": 20},
+        {"op": "ALLOC", "pid": 2, "size": 16},
+        {"op": "ALLOC", "pid": 3, "size": 10},
+        {"op": "FREE", "pid": 2, "size": 0},
+        {"op": "ALLOC", "pid": 4, "size": 14},
+        {"op": "FREE", "pid": 1, "size": 0},
+        {"op": "ALLOC", "pid": 5, "size": 18}
+      ]
+    },
+    "paging": {
+      "frames": 3,
+      "compare": true,
+      "algorithm": "FIFO",
+      "references": [7, 0, 1, 2, 0, 3, 0, 4, 2, 3, 0, 3, 2, 1, 2, 0, 1, 7, 0, 1]
+    }
+  }
+}
